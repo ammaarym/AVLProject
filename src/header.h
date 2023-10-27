@@ -121,9 +121,13 @@ public:
         }
         if (id < parent->id) {
             parent->left = insert(parent->left, id, name, flag);
-        } else if (id > parent->id) {
+        }
+        else if (id > parent->id) {
             parent->right = insert(parent->right, id, name, flag);
-        } else {  // Duplicate IDs not allowed
+        }
+            // Checks for duplicate ids
+            // christian
+        else {
             flag = true;
             return parent;
         }

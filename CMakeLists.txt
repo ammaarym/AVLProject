@@ -19,7 +19,7 @@ FetchContent_MakeAvailable(Catch2)
 include_directories(test-unit)
 
 add_executable(Main
-        src/main.cpp)
+        src/main.cpp src/headergs.h src/maings.cpp)
 
 add_executable(Tests
         test-unit/test.cpp)

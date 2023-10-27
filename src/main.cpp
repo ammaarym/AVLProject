@@ -11,13 +11,16 @@ using namespace std;
 
 // Regex to capture content between quotations (typically a name)
 regex name("[^\"]*[\"]([a-zA-Z\\s]*)[\"].*");
+// Regex thats not greedy and captures everything bw first and last quotation mark
+//regex name("\"(.*?)\"\\s+(\\d+)");
+// Regex to capture idStr
+regex number("[^\\d]*([\\d]*).*");
 // Regex to extract a name and ID together from a given string
-regex otherPattern("\"([^\"]*)\"\\s+(\\d+)");
+//regex otherPattern("\"([^\"]*)\"\\s+(\\d+)");
 
 int main() {
     // Create a new AVL tree instance
     AVLTree avlTree;
-
     // Fetch the number of commands/operations to be performed
     int num;
     cin >> num;
@@ -41,17 +44,42 @@ int main() {
             if (regex_search(line, matches, name)){
                 nameVal = matches[1];
             }
-
+            else {
+                cout << "unsuccessful" << endl;
+                continue;
+            }
             string idStr;
-            // Extract the ID, which is expected to come after the name
-            in >> idStr;
-            in >> idStr;
+
+            if (regex_search(line, matches, number)){
+                idStr = matches[1];
+            }
+            else {
+                cout << "unsuccessful" << endl;
+                continue;
+            }
 
             // Validate that the ID is made up of numeric characters only
+            // christian
+            // checks for special characters
+            bool looper = false;
             for (char c : idStr){
                 if(!isdigit(c)){
                     cout << "unsuccessful" << endl;
+                    looper = true;
+                    break;
                 }
+            }
+
+            if (looper){
+                continue;
+            }
+
+            // christian
+            // check for 8-digit ids
+            // string id_str = to_string(id);
+            if (idStr.length() != 8) {
+                cout << "unsuccessful" << endl;
+                continue;
             }
 
             int idNum = stoi(idStr);  // Convert the ID string to an integer

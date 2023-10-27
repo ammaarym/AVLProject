@@ -56,6 +56,13 @@ build CMakeFiles/Main.dir/src/main.cpp.obj: CXX_COMPILER__Main_Debug C$:/Users/m
   OBJECT_DIR = CMakeFiles\Main.dir
   OBJECT_FILE_DIR = CMakeFiles\Main.dir\src
 
+build CMakeFiles/Main.dir/src/maings.cpp.obj: CXX_COMPILER__Main_Debug C$:/Users/maham/CLionProjects/untitled15/src/maings.cpp || cmake_object_order_depends_target_Main
+  DEP_FILE = CMakeFiles\Main.dir\src\maings.cpp.obj.d
+  FLAGS = -Wall -Werror -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/maham/CLionProjects/untitled15/test-unit
+  OBJECT_DIR = CMakeFiles\Main.dir
+  OBJECT_FILE_DIR = CMakeFiles\Main.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Main
@@ -64,7 +71,7 @@ build CMakeFiles/Main.dir/src/main.cpp.obj: CXX_COMPILER__Main_Debug C$:/Users/m
 #############################################
 # Link the executable Main.exe
 
-build Main.exe: CXX_EXECUTABLE_LINKER__Main_Debug CMakeFiles/Main.dir/src/main.cpp.obj
+build Main.exe: CXX_EXECUTABLE_LINKER__Main_Debug CMakeFiles/Main.dir/src/main.cpp.obj CMakeFiles/Main.dir/src/maings.cpp.obj
   FLAGS = -Wall -Werror -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Main.dir
